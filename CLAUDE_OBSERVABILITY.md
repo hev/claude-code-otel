@@ -328,6 +328,42 @@ The event data provides detailed insights into Claude Code interactions:
 
 **Performance Monitoring**: Track API request durations and tool execution times to identify performance bottlenecks.
 
+### Derived Metrics
+
+Some useful metrics can be calculated from the raw telemetry data:
+
+#### Context Window Utilization
+
+Calculate the percentage of context window used per API request. This helps identify when sessions are approaching context limits.
+
+**From Loki (per-request granularity):**
+
+```logql
+# Average context window utilization % (assumes 200k token context)
+avg_over_time(
+  {service_name="claude-code"} |= "claude_code.api_request"
+  | json
+  | unwrap input_tokens [$__interval]
+) / 200000 * 100
+```
+
+**Attributes available for filtering:**
+* `model`: Filter by model (context limits vary by model)
+* `session_id`: Track utilization per session
+* `organization_id`: Aggregate by organization
+* `user_account_uuid`: Track per-user patterns
+
+**Context window limits by model:**
+| Model | Context Window |
+| ----- | -------------- |
+| claude-opus-4-5-20251101 | 200,000 tokens |
+| claude-sonnet-4-20250514 | 200,000 tokens |
+| claude-haiku-4-5-20251001 | 200,000 tokens |
+
+<Note>
+  High context utilization (>80%) may indicate sessions at risk of hitting context limits. Consider monitoring for alerts when utilization exceeds thresholds.
+</Note>
+
 ## Backend Considerations
 
 Your choice of metrics and logs backends will determine the types of analyses you can perform:
