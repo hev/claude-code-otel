@@ -86,7 +86,7 @@
             "type": "prometheus",
             "uid": "prometheus"
           },
-          "expr": "sum(increase(claude_code_session_count_total{job=\"otel-collector\"}[1h]))",
+          "expr": "sum(increase(claude_code_session_count_total{job=\"otel-collector\", session_id=~\"$session_id\"}[1h]))",
           "interval": "",
           "legendFormat": "Sessions (1h)",
           "refId": "A"
@@ -152,7 +152,7 @@
             "type": "prometheus",
             "uid": "prometheus"
           },
-          "expr": "sum(increase(claude_code_cost_usage_USD_total{job=\"otel-collector\"}[1h]))",
+          "expr": "sum(increase(claude_code_cost_usage_USD_total{job=\"otel-collector\", session_id=~\"$session_id\"}[1h]))",
           "interval": "",
           "legendFormat": "Cost (1h)",
           "refId": "A"
@@ -218,7 +218,7 @@
             "type": "prometheus",
             "uid": "prometheus"
           },
-          "expr": "sum(increase(claude_code_token_usage_tokens_total{job=\"otel-collector\"}[1h]))",
+          "expr": "sum(increase(claude_code_token_usage_tokens_total{job=\"otel-collector\", session_id=~\"$session_id\"}[1h]))",
           "interval": "",
           "legendFormat": "Tokens (1h)",
           "refId": "A"
@@ -284,7 +284,7 @@
             "type": "prometheus",
             "uid": "prometheus"
           },
-          "expr": "sum(increase(claude_code_lines_of_code_count_total{job=\"otel-collector\"}[1h]))",
+          "expr": "sum(increase(claude_code_lines_of_code_count_total{job=\"otel-collector\", session_id=~\"$session_id\"}[1h]))",
           "interval": "",
           "legendFormat": "Lines Changed (1h)",
           "refId": "A"
@@ -379,7 +379,7 @@
             "type": "prometheus",
             "uid": "prometheus"
           },
-          "expr": "sum by (model) (increase(claude_code_cost_usage_USD_total{job=\"otel-collector\"}[1h]))",
+          "expr": "sum by (model) (increase(claude_code_cost_usage_USD_total{job=\"otel-collector\", session_id=~\"$session_id\"}[1h]))",
           "interval": "",
           "legendFormat": "{{model}}",
           "refId": "A"
@@ -546,7 +546,7 @@
             "type": "prometheus",
             "uid": "prometheus"
           },
-          "expr": "sum by (type) (rate(claude_code_token_usage_tokens_total{job=\"otel-collector\"}[5m]) * 60)",
+          "expr": "sum by (type) (rate(claude_code_token_usage_tokens_total{job=\"otel-collector\", session_id=~\"$session_id\"}[5m]) * 60)",
           "interval": "",
           "legendFormat": "{{type}}",
           "refId": "A"
@@ -674,7 +674,7 @@
             "type": "prometheus",
             "uid": "prometheus"
           },
-          "expr": "sum by (model) (changes(claude_code_cost_usage_USD_total{job=\"otel-collector\"}[5m]))",
+          "expr": "sum by (model) (changes(claude_code_cost_usage_USD_total{job=\"otel-collector\", session_id=~\"$session_id\"}[5m]))",
           "interval": "",
           "legendFormat": "{{model}}",
           "refId": "A"
@@ -840,7 +840,7 @@
             "type": "loki",
             "uid": "loki"
           },
-          "expr": "sum by (tool_name) (count_over_time({service_name=\"claude-code\"} |= \"claude_code.tool_result\" [5m]))",
+          "expr": "sum by (tool_name) (count_over_time({service_name=\"claude-code\", session_id=~\"$session_id\"} |= \"claude_code.tool_result\" [5m]))",
           "interval": "",
           "legendFormat": "{{tool_name}}",
           "refId": "A"
@@ -992,7 +992,7 @@
             "type": "loki",
             "uid": "loki"
           },
-          "expr": "sum by (tool_name) (count_over_time({service_name=\"claude-code\"} |= \"claude_code.tool_result\" [$__range]))",
+          "expr": "sum by (tool_name) (count_over_time({service_name=\"claude-code\", session_id=~\"$session_id\"} |= \"claude_code.tool_result\" [$__range]))",
           "interval": "",
           "legendFormat": "{{tool_name}}",
           "refId": "A"
@@ -1087,7 +1087,7 @@
             "type": "loki",
             "uid": "loki"
           },
-          "expr": "100 * (sum by (tool_name) (count_over_time({service_name=\"claude-code\"} |= \"claude_code.tool_result\" | json | success=\"true\" [15m]))) / (sum by (tool_name) (count_over_time({service_name=\"claude-code\"} |= \"claude_code.tool_result\" [15m])))",
+          "expr": "100 * (sum by (tool_name) (count_over_time({service_name=\"claude-code\", session_id=~\"$session_id\"} |= \"claude_code.tool_result\" | json | success=\"true\" [15m]))) / (sum by (tool_name) (count_over_time({service_name=\"claude-code\", session_id=~\"$session_id\"} |= \"claude_code.tool_result\" [15m])))",
           "interval": "",
           "legendFormat": "{{tool_name}}",
           "refId": "A"
@@ -1182,7 +1182,7 @@
             "type": "loki",
             "uid": "loki"
           },
-          "expr": "avg by (model) (avg_over_time({service_name=\"claude-code\"} |= \"claude_code.api_request\" | unwrap duration_ms [$__interval]))",
+          "expr": "avg by (model) (avg_over_time({service_name=\"claude-code\", session_id=~\"$session_id\"} |= \"claude_code.api_request\" | unwrap duration_ms [$__interval]))",
           "interval": "",
           "legendFormat": "{{model}}",
           "refId": "A"
@@ -1271,7 +1271,7 @@
             "type": "loki",
             "uid": "loki"
           },
-          "expr": "sum by (status_code) (rate({service_name=\"claude-code\"} |= \"claude_code.api_error\" | json | __error__ = \"\" [$__interval]))",
+          "expr": "sum by (status_code) (rate({service_name=\"claude-code\", session_id=~\"$session_id\"} |= \"claude_code.api_error\" | json | __error__ = \"\" [$__interval]))",
           "interval": "",
           "legendFormat": "HTTP {{status_code}}",
           "refId": "A"
@@ -1366,7 +1366,7 @@
             "type": "prometheus",
             "uid": "prometheus"
           },
-          "expr": "sum by (type) (rate(claude_code_lines_of_code_count_total{job=\"otel-collector\"}[5m]) * 60)",
+          "expr": "sum by (type) (rate(claude_code_lines_of_code_count_total{job=\"otel-collector\", session_id=~\"$session_id\"}[5m]) * 60)",
           "interval": "",
           "legendFormat": "{{type}} lines/min",
           "refId": "A"
@@ -1455,7 +1455,7 @@
             "type": "prometheus",
             "uid": "prometheus"
           },
-          "expr": "sum(increase(claude_code_commit_count_total{job=\"otel-collector\"}[1h])) or vector(0)",
+          "expr": "sum(increase(claude_code_commit_count_total{job=\"otel-collector\", session_id=~\"$session_id\"}[1h])) or vector(0)",
           "interval": "",
           "legendFormat": "Commits",
           "refId": "A"
@@ -1465,7 +1465,7 @@
             "type": "prometheus",
             "uid": "prometheus"
           },
-          "expr": "sum(increase(claude_code_pull_request_count_total{job=\"otel-collector\"}[1h])) or vector(0)",
+          "expr": "sum(increase(claude_code_pull_request_count_total{job=\"otel-collector\", session_id=~\"$session_id\"}[1h])) or vector(0)",
           "interval": "",
           "legendFormat": "Pull Requests",
           "refId": "B"
@@ -1508,7 +1508,7 @@
             "type": "loki",
             "uid": "loki"
           },
-          "expr": "{service_name=\"claude-code\"} |= \"claude_code.tool_result\" | line_format \"{{.event_timestamp}} [{{.tool_name}}] {{if eq .success \\\"true\\\"}}✅{{else}}❌{{end}} {{.duration_ms}}ms {{if .error}}ERROR: {{.error}}{{end}}\"",
+          "expr": "{service_name=\"claude-code\", session_id=~\"$session_id\"} |= \"claude_code.tool_result\" | line_format \"{{.event_timestamp}} [{{.tool_name}}] {{if eq .success \\\"true\\\"}}✅{{else}}❌{{end}} {{.duration_ms}}ms {{if .error}}ERROR: {{.error}}{{end}}\"",
           "refId": "A"
         }
       ],
@@ -1543,7 +1543,7 @@
             "type": "loki",
             "uid": "loki"
           },
-          "expr": "{service_name=\"claude-code\"} |= \"claude_code.api_error\" | line_format \"{{.event_timestamp}} [{{.model}}] ❌ HTTP {{.status_code}} {{.duration_ms}}ms ERROR: {{.error}}\"",
+          "expr": "{service_name=\"claude-code\", session_id=~\"$session_id\"} |= \"claude_code.api_error\" | line_format \"{{.event_timestamp}} [{{.model}}] ❌ HTTP {{.status_code}} {{.duration_ms}}ms ERROR: {{.error}}\"",
           "refId": "A"
         }
       ],
@@ -1556,7 +1556,37 @@
   "style": "dark",
   "tags": ["claude-code", "observability"],
   "templating": {
-    "list": []
+    "list": [
+      {
+        "allValue": ".*",
+        "current": {
+          "selected": true,
+          "text": "All",
+          "value": "$__all"
+        },
+        "datasource": {
+          "type": "prometheus",
+          "uid": "prometheus"
+        },
+        "definition": "label_values(claude_code_session_count_total, session_id)",
+        "description": "Filter by Claude Code session ID",
+        "hide": 0,
+        "includeAll": true,
+        "label": "Session ID",
+        "multi": false,
+        "name": "session_id",
+        "options": [],
+        "query": {
+          "query": "label_values(claude_code_session_count_total, session_id)",
+          "refId": "StandardVariableQuery"
+        },
+        "refresh": 2,
+        "regex": "",
+        "skipUrlSync": false,
+        "sort": 3,
+        "type": "query"
+      }
+    ]
   },
   "time": {
     "from": "now-1h",
