@@ -1,0 +1,41 @@
+{
+  "trace_id": "69c3aefc-039f-4d10-8f44-6c1ccfe3633e",
+  "project_dir": "/Users/hev/workspace/claude-code-otel",
+  "started_at": "2026-01-06T18:53:30.385244+00:00",
+  "git_branch": "main",
+  "prompts": [
+    {
+      "sequence": 1,
+      "timestamp": "2026-01-06T18:53:30.385355+00:00",
+      "prompt_text": "I have a few issues I am seeing wit the monitoring. \n\n* We added a context window utilization metric but no dashboard panel that I can see.\n* Commit and PR metrics don't appear to be working (Or at least displaying in grafana panel).\n* Toll success rate shows an error. \n* active sessions always shows 0 - I thought we fixed this already. ",
+      "git_sha": "448e48e",
+      "git_sha_full": "448e48eb15508a628a08a9f9bd5c0a2e9c80dd65",
+      "files_changed": [],
+      "files_staged": [
+        {
+          "status": "M",
+          "path": "ocker-compose.yml"
+        }
+      ]
+    },
+    {
+      "sequence": 2,
+      "timestamp": "2026-01-06T19:55:44.869666+00:00",
+      "prompt_text": "restart the stack so I can test these changes",
+      "git_sha": "448e48e",
+      "git_sha_full": "448e48eb15508a628a08a9f9bd5c0a2e9c80dd65",
+      "files_changed": [
+        {
+          "status": "M",
+          "path": "docker-compose.yml"
+        }
+      ],
+      "files_staged": [
+        {
+          "status": "M",
+          "path": "laude-code-dashboard.json"
+        }
+      ]
+    }
+  ]
+}

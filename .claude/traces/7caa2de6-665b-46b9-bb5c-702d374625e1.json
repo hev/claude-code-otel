@@ -1,0 +1,36 @@
+{
+  "trace_id": "7caa2de6-665b-46b9-bb5c-702d374625e1",
+  "project_dir": "/Users/hev/workspace/claude-code-otel",
+  "started_at": "2026-01-06T16:50:06.942654+00:00",
+  "git_branch": "main",
+  "prompts": [
+    {
+      "sequence": 1,
+      "timestamp": "2026-01-06T16:50:06.942763+00:00",
+      "prompt_text": "I have grafana running at http://localhost:3847/ but I can't seem to get my latest dashboard changes to load. Make sure I am in sync with main of https://github.com/hev/claude-code-otel - may also need to restart the otel collector or something",
+      "git_sha": "448e48e",
+      "git_sha_full": "448e48eb15508a628a08a9f9bd5c0a2e9c80dd65",
+      "files_changed": [],
+      "files_staged": [
+        {
+          "status": "M",
+          "path": "ocker-compose.yml"
+        }
+      ]
+    },
+    {
+      "sequence": 2,
+      "timestamp": "2026-01-06T17:03:44.460354+00:00",
+      "prompt_text": "push those commits to origin",
+      "git_sha": "448e48e",
+      "git_sha_full": "448e48eb15508a628a08a9f9bd5c0a2e9c80dd65",
+      "files_changed": [],
+      "files_staged": [
+        {
+          "status": "M",
+          "path": "ocker-compose.yml"
+        }
+      ]
+    }
+  ]
+}

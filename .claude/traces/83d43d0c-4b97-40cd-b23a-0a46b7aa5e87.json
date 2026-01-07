@@ -1,0 +1,46 @@
+{
+  "trace_id": "83d43d0c-4b97-40cd-b23a-0a46b7aa5e87",
+  "project_dir": "/Users/hev/workspace/claude-code-otel",
+  "started_at": "2026-01-07T23:21:33.131832+00:00",
+  "git_branch": "main",
+  "prompts": [
+    {
+      "sequence": 1,
+      "timestamp": "2026-01-07T23:21:33.131932+00:00",
+      "prompt_text": "I want to overhaul the dashboard. here's what I care about. Focus on these outcomes and work backwards for any work that needs to be done.\n\nContext window. How much of the context window is being used for what. similar to what happens when I run context. The smart zone is 30-60% >80% is the dumb zone.\nPer session links. I want to be able to link to a session to track it.\nCost and specific model usage. \nPRs and COmmits\nNumber of user inputs (vs autonomous running). \nProject being worked on. should be able to toggle between projects. \nTime spent on a project. ",
+      "git_sha": "448e48e",
+      "git_sha_full": "448e48eb15508a628a08a9f9bd5c0a2e9c80dd65",
+      "files_changed": [
+        {
+          "status": "M",
+          "path": "docker-compose.yml"
+        }
+      ],
+      "files_staged": [
+        {
+          "status": "M",
+          "path": "laude-code-dashboard.json"
+        }
+      ]
+    },
+    {
+      "sequence": 2,
+      "timestamp": "2026-01-07T23:22:12.455733+00:00",
+      "prompt_text": "I want to overhaul the dashboard. here's what I care about. Focus on these outcomes and work backwards for any work that needs to be done.\n\nContext window. How much of the context window is being used for what. similar to what happens when I run context. The smart zone is 30-60% >80% is the dumb zone.\nPer session links. I want to be able to link to a session to track it.\nCost and specific model usage. \nPRs and COmmits\nNumber of user inputs (vs autonomous running). \nProject being worked on. should be able to toggle between projects. \nTime spent on a project. \n\nCreate this as a plan and save to prompt.md. Do not implement",
+      "git_sha": "448e48e",
+      "git_sha_full": "448e48eb15508a628a08a9f9bd5c0a2e9c80dd65",
+      "files_changed": [
+        {
+          "status": "M",
+          "path": "docker-compose.yml"
+        }
+      ],
+      "files_staged": [
+        {
+          "status": "M",
+          "path": "laude-code-dashboard.json"
+        }
+      ]
+    }
+  ]
+}
