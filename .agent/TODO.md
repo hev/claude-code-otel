@@ -1,0 +1,22 @@
+# Dashboard Overhaul TODO
+
+## Priority 0 (P0) - Core Features
+- [ ] Add Context Window gauge panel (0-100% with Smart/Dumb zone thresholds)
+- [ ] Add User Input counter panel (count user prompts)
+- [ ] Add Session links panel (clickable session IDs with filtered URLs)
+
+## Priority 1 (P1) - Enhancements
+- [ ] Improve Cost/Model breakdown (pie chart by model)
+- [ ] Improve PRs/Commits panels (add stats panels)
+
+## Priority 2 (P2) - Calculated Metrics
+- [ ] Add Session duration panel (calculated from event timestamps)
+
+## Priority 3 (P3) - Blocked on Upstream
+- [ ] Project filtering (blocked - needs working_directory attribute)
+- [ ] Time per project (blocked - needs working_directory attribute)
+
+---
+
+## Current Status
+Working on: Context Window gauge panel
