@@ -6,7 +6,7 @@
 - [x] Add Session links panel (clickable session IDs with filtered URLs)
 
 ## Priority 1 (P1) - Enhancements
-- [ ] Improve Cost/Model breakdown (pie chart by model)
+- [x] Improve Cost/Model breakdown (pie chart by model)
 - [ ] Improve PRs/Commits panels (add stats panels)
 
 ## Priority 2 (P2) - Calculated Metrics
@@ -19,9 +19,8 @@
 ---
 
 ## Current Status
-Completed: Session Links panel - added table panel that:
-- Lists all sessions with their total cost
-- Clickable session IDs that filter the dashboard to that session
-- Preserves time range when clicking links
-- Shows last activity time for each session
-- Sorted by most recent activity by default
+Completed: Cost by Model pie chart - added donut chart panel that:
+- Shows total cost breakdown by model
+- Uses distinct colors for Opus (red), Sonnet (purple), and Haiku (blue)
+- Displays both value and percentage in legend
+- Placed in Cost & Usage Analysis section alongside the existing time series
