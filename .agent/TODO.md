@@ -7,7 +7,7 @@
 
 ## Priority 1 (P1) - Enhancements
 - [x] Improve Cost/Model breakdown (pie chart by model)
-- [ ] Improve PRs/Commits panels (add stats panels)
+- [x] Improve PRs/Commits panels (add stats panels)
 
 ## Priority 2 (P2) - Calculated Metrics
 - [ ] Add Session duration panel (calculated from event timestamps)
@@ -19,8 +19,10 @@
 ---
 
 ## Current Status
-Completed: Cost by Model pie chart - added donut chart panel that:
-- Shows total cost breakdown by model
-- Uses distinct colors for Opus (red), Sonnet (purple), and Haiku (blue)
-- Displays both value and percentage in legend
-- Placed in Cost & Usage Analysis section alongside the existing time series
+Completed: PRs/Commits stat panels - added four new stat panels to User Activity & Productivity section:
+- **Commits Created**: Shows total commits with color thresholds (blue->green->yellow->orange)
+- **PRs Created**: Shows total pull requests with color thresholds
+- **Lines Added**: Shows lines of code added (green color scheme)
+- **Lines Removed**: Shows lines of code removed (red color scheme)
+
+All panels use instant queries for total counts with appropriate color thresholds based on volume.

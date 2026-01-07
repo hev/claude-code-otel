@@ -2015,6 +2015,286 @@
         "type": "prometheus",
         "uid": "prometheus"
       },
+      "description": "Total number of git commits created during selected sessions",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "blue",
+                "value": null
+              },
+              {
+                "color": "green",
+                "value": 1
+              },
+              {
+                "color": "yellow",
+                "value": 10
+              },
+              {
+                "color": "orange",
+                "value": 25
+              }
+            ]
+          },
+          "unit": "short"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 6,
+        "x": 0,
+        "y": 69
+      },
+      "id": 28,
+      "options": {
+        "colorMode": "background",
+        "graphMode": "area",
+        "justifyMode": "center",
+        "orientation": "auto",
+        "reduceOptions": {
+          "values": false,
+          "calcs": ["lastNotNull"],
+          "fields": ""
+        },
+        "textMode": "auto"
+      },
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "prometheus"
+          },
+          "expr": "sum(claude_code_commit_count_total{job=\"otel-collector\", session_id=~\"$session_id\"}) or vector(0)",
+          "instant": true,
+          "interval": "",
+          "legendFormat": "Commits",
+          "refId": "A"
+        }
+      ],
+      "title": "Commits Created",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "prometheus"
+      },
+      "description": "Total number of pull requests created during selected sessions",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "blue",
+                "value": null
+              },
+              {
+                "color": "green",
+                "value": 1
+              },
+              {
+                "color": "yellow",
+                "value": 5
+              },
+              {
+                "color": "orange",
+                "value": 10
+              }
+            ]
+          },
+          "unit": "short"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 6,
+        "x": 6,
+        "y": 69
+      },
+      "id": 29,
+      "options": {
+        "colorMode": "background",
+        "graphMode": "area",
+        "justifyMode": "center",
+        "orientation": "auto",
+        "reduceOptions": {
+          "values": false,
+          "calcs": ["lastNotNull"],
+          "fields": ""
+        },
+        "textMode": "auto"
+      },
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "prometheus"
+          },
+          "expr": "sum(claude_code_pull_request_count_total{job=\"otel-collector\", session_id=~\"$session_id\"}) or vector(0)",
+          "instant": true,
+          "interval": "",
+          "legendFormat": "PRs",
+          "refId": "A"
+        }
+      ],
+      "title": "PRs Created",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "prometheus"
+      },
+      "description": "Total lines of code added during selected sessions",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "yellow",
+                "value": 500
+              },
+              {
+                "color": "orange",
+                "value": 2000
+              }
+            ]
+          },
+          "unit": "short"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 6,
+        "x": 12,
+        "y": 69
+      },
+      "id": 30,
+      "options": {
+        "colorMode": "background",
+        "graphMode": "area",
+        "justifyMode": "center",
+        "orientation": "auto",
+        "reduceOptions": {
+          "values": false,
+          "calcs": ["lastNotNull"],
+          "fields": ""
+        },
+        "textMode": "auto"
+      },
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "prometheus"
+          },
+          "expr": "sum(claude_code_lines_of_code_count_total{job=\"otel-collector\", session_id=~\"$session_id\", type=\"added\"}) or vector(0)",
+          "instant": true,
+          "interval": "",
+          "legendFormat": "Added",
+          "refId": "A"
+        }
+      ],
+      "title": "Lines Added",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "prometheus"
+      },
+      "description": "Total lines of code removed during selected sessions",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "red",
+                "value": null
+              },
+              {
+                "color": "orange",
+                "value": 500
+              },
+              {
+                "color": "yellow",
+                "value": 2000
+              }
+            ]
+          },
+          "unit": "short"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 6,
+        "x": 18,
+        "y": 69
+      },
+      "id": 31,
+      "options": {
+        "colorMode": "background",
+        "graphMode": "area",
+        "justifyMode": "center",
+        "orientation": "auto",
+        "reduceOptions": {
+          "values": false,
+          "calcs": ["lastNotNull"],
+          "fields": ""
+        },
+        "textMode": "auto"
+      },
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "prometheus"
+          },
+          "expr": "sum(claude_code_lines_of_code_count_total{job=\"otel-collector\", session_id=~\"$session_id\", type=\"removed\"}) or vector(0)",
+          "instant": true,
+          "interval": "",
+          "legendFormat": "Removed",
+          "refId": "A"
+        }
+      ],
+      "title": "Lines Removed",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "prometheus"
+      },
       "fieldConfig": {
         "defaults": {
           "color": {
@@ -2070,7 +2350,7 @@
         "h": 8,
         "w": 12,
         "x": 0,
-        "y": 69
+        "y": 73
       },
       "id": 11,
       "options": {
@@ -2159,7 +2439,7 @@
         "h": 8,
         "w": 12,
         "x": 12,
-        "y": 69
+        "y": 73
       },
       "id": 12,
       "options": {
@@ -2201,7 +2481,7 @@
     {
       "title": "🔍 Event Logs",
       "type": "row",
-      "gridPos": {"h": 1, "w": 24, "x": 0, "y": 77},
+      "gridPos": {"h": 1, "w": 24, "x": 0, "y": 81},
       "collapsed": false
     },
     {
@@ -2213,7 +2493,7 @@
         "h": 8,
         "w": 12,
         "x": 0,
-        "y": 78
+        "y": 82
       },
       "id": 13,
       "options": {
@@ -2248,7 +2528,7 @@
         "h": 8,
         "w": 12,
         "x": 12,
-        "y": 78
+        "y": 82
       },
       "id": 17,
       "options": {
