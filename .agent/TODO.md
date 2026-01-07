@@ -10,7 +10,7 @@
 - [x] Improve PRs/Commits panels (add stats panels)
 
 ## Priority 2 (P2) - Calculated Metrics
-- [ ] Add Session duration panel (calculated from event timestamps)
+- [x] Add Session duration panel (calculated from event timestamps)
 
 ## Priority 3 (P3) - Blocked on Upstream
 - [ ] Project filtering (blocked - needs working_directory attribute)
@@ -19,10 +19,9 @@
 ---
 
 ## Current Status
-Completed: PRs/Commits stat panels - added four new stat panels to User Activity & Productivity section:
-- **Commits Created**: Shows total commits with color thresholds (blue->green->yellow->orange)
-- **PRs Created**: Shows total pull requests with color thresholds
-- **Lines Added**: Shows lines of code added (green color scheme)
-- **Lines Removed**: Shows lines of code removed (red color scheme)
-
-All panels use instant queries for total counts with appropriate color thresholds based on volume.
+Completed: Session Duration panel - added to Session Activity section:
+- **Session Duration**: Shows duration calculated from first to last event timestamps
+- Uses Loki queries to calculate min/max timestamps from API request events
+- Displays duration in human-readable format (seconds/minutes/hours)
+- Color thresholds: blue (0), green (5m), yellow (30m), orange (2h)
+- Placed alongside User Inputs and API Requests panels
