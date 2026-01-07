@@ -2,7 +2,7 @@
 
 ## Priority 0 (P0) - Core Features
 - [x] Add Context Window gauge panel (0-100% with Smart/Dumb zone thresholds)
-- [ ] Add User Input counter panel (count user prompts)
+- [x] Add User Input counter panel (count user prompts)
 - [ ] Add Session links panel (clickable session IDs with filtered URLs)
 
 ## Priority 1 (P1) - Enhancements
@@ -19,4 +19,7 @@
 ---
 
 ## Current Status
-Completed: Context Window gauge panel - added gauge and timeline panels with Smart/Dumb zone thresholds
+Completed: User Input counter panel - added Session Activity section with:
+- User Inputs stat panel (counts user_prompt events)
+- API Requests stat panel (counts api_request events for comparison)
+- User Input Activity timeline (shows user activity over time)
